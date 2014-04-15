@@ -7,7 +7,7 @@ angular.module('<%= slugifiedPluralName %>').controller('<%= classifiedPluralNam
 
         // Create new <%= humanizedSingularName %>
         $scope.create = function() {
-        	// Create new <%= humanizedSingularName %> object
+            // Create new <%= humanizedSingularName %> object
             var <%= camelizedSingularName %> = new <%= classifiedPluralName %>({
                 name: this.name
             });

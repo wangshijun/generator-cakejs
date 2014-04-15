@@ -1,19 +1,19 @@
 'use strict';
 var util = require('util'),
-	inflections = require('underscore.inflections'),
-	yeoman = require('yeoman-generator');
+    inflections = require('underscore.inflections'),
+    yeoman = require('yeoman-generator');
 
 
 var ControllerGenerator = yeoman.generators.NamedBase.extend({
-	createControllerFile: function() {
-		this.slugifiedName = this._.slugify(this._.humanize(this.name));
+    createControllerFile: function() {
+        this.slugifiedName = this._.slugify(this._.humanize(this.name));
 
-		this.humanizedName = this._.humanize(this.slugifiedName);
-		this.humanizedPluralName = inflections.pluralize(this._.humanize(this.slugifiedName));
-		this.humanizedSingularName = inflections.singularize(this._.humanize(this.slugifiedName));
+        this.humanizedName = this._.humanize(this.slugifiedName);
+        this.humanizedPluralName = inflections.pluralize(this._.humanize(this.slugifiedName));
+        this.humanizedSingularName = inflections.singularize(this._.humanize(this.slugifiedName));
 
-		this.template('_controller.js', 'app/controllers/' + this.slugifiedName + '.js')
-	}
+        this.template('_controller.js', 'app/controllers/' + this.slugifiedName + '.js')
+    }
 });
 
 module.exports = ControllerGenerator;

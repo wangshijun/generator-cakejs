@@ -1,11 +1,11 @@
 'use strict';
 var util = require('util'),
-	inflections = require('underscore.inflections'),
-	yeoman = require('yeoman-generator');
+    inflections = require('underscore.inflections'),
+    yeoman = require('yeoman-generator');
 
 
 var ModelGenerator = yeoman.generators.NamedBase.extend({
-	createModelFile: function () {
+    createModelFile: function () {
         // Set model names
         this.slugifiedModelName = this._.slugify(this._.humanize(this.name));
         this.classifiedModelName = this._.classify(this.slugifiedModelName);
