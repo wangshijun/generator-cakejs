@@ -5,11 +5,11 @@ var util = require('util'),
 
 
 var ModuleGenerator = yeoman.generators.NamedBase.extend({
-    init: function() {
+    init: function () {
         this.slugifiedName = this._.slugify(this._.humanize(this.name));
     },
 
-    askForModuleFolders: function() {
+    askForModuleFolders: function () {
         var done = this.async();
 
         var prompts = [{
@@ -55,7 +55,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             }]
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.addConfigFolder = this._.contains(props.folders, 'addConfigFolder');
             this.addControllersFolder = this._.contains(props.folders, 'addControllersFolder');
             this.addCSSFolder = this._.contains(props.folders, 'addCSSFolder');
@@ -70,7 +70,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    renderModule: function() {
+    renderModule: function () {
         // Create module folder
         this.mkdir('public/modules/' + this.slugifiedName);
 

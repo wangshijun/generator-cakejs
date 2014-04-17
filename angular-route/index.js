@@ -5,7 +5,7 @@ var util = require('util'),
 
 
 var ViewGenerator = yeoman.generators.NamedBase.extend({
-    askForModuleName: function() {
+    askForModuleName: function () {
         var done = this.async();
 
         var prompts = [{
@@ -14,7 +14,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
             default: 'core'
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.moduleName = props.moduleName;
             this.controllerName = props.controllerName;
 
@@ -29,7 +29,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    askForRouteDetails: function() {
+    askForRouteDetails: function () {
         var done = this.async();
 
         var prompts = [{
@@ -46,7 +46,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
             default: this.classifiedName
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.routePath = props.routePath;
             this.viewName = props.viewName;
             this.controllerName = props.controllerName;
@@ -63,7 +63,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    renderRoute: function() {
+    renderRoute: function () {
         var routesFilePath = process.cwd() + '/public/modules/' + this.slugifiedModuleName + '/config/routes.js';
 
         // If routes file exists we add a new state otherwise we render a new one
@@ -81,7 +81,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
         }
     },
 
-    renderRouteViewController: function() {
+    renderRouteViewController: function () {
         this.template('_controller.js', 'public/modules/' + this.slugifiedModuleName + '/controllers/' + this.slugifiedControllerName + '.js')
         this.template('_view.html', 'public/modules/' + this.slugifiedModuleName + '/views/' + this.slugifiedViewName + '.html')
     }

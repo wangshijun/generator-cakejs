@@ -6,7 +6,7 @@ var util = require('util'),
 
 
 var TestGenerator = yeoman.generators.NamedBase.extend({
-    askForModuleName: function() {
+    askForModuleName: function () {
         var done = this.async();
 
         var prompts = [{
@@ -15,7 +15,7 @@ var TestGenerator = yeoman.generators.NamedBase.extend({
             default: 'core'
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.moduleName = props.moduleName;
             this.slugifiedModuleName = this._.slugify(this.moduleName);
 
@@ -27,7 +27,7 @@ var TestGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    renderTestFile: function() {
+    renderTestFile: function () {
         var controllerFilePath = process.cwd() + '/public/modules/' + this.slugifiedModuleName + '/controllers/' + this.slugifiedControllerName + '.js';
         
         // If controller file exists we create a test for it otherwise we will first create a controller

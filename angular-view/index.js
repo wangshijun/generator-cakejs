@@ -5,7 +5,7 @@ var util = require('util'),
 
 
 var ViewGenerator = yeoman.generators.NamedBase.extend({
-    askForModuleName: function() {
+    askForModuleName: function () {
         var done = this.async();
 
         var prompts = [{
@@ -14,7 +14,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
             default: 'core'
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.moduleName = props.moduleName;
             this.controllerName = props.controllerName;
 
@@ -29,7 +29,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    askForControllerName: function() {
+    askForControllerName: function () {
         var done = this.async();
 
         var prompts = [{
@@ -38,7 +38,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
             default: this.classifiedName
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.controllerName = props.controllerName;
             
             this.slugifiedControllerName = this._.slugify(this.controllerName);
@@ -48,7 +48,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    askToAddRoute: function() {
+    askToAddRoute: function () {
         var done = this.async();
 
         var prompts = [{
@@ -58,14 +58,14 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
             default: true
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.addRoute = props.addRoute;
 
             done();
         }.bind(this));
     },
 
-    askForRouteDetails: function() {
+    askForRouteDetails: function () {
         if (this.addRoute) {
             var done = this.async();
 
@@ -75,7 +75,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
                 default: this.slugifiedName
             }];
 
-            this.prompt(prompts, function(props) {
+            this.prompt(prompts, function (props) {
                 this.routePath = props.routePath;
                 this.slugifiedRoutePath = this._.slugify(this.routePath);
 
@@ -84,7 +84,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
         }
     },
 
-    renderRoute: function() {
+    renderRoute: function () {
         if (this.addRoute) {
             var routesFilePath = process.cwd() + '/public/modules/' + this.slugifiedModuleName + '/config/routes.js';
             
@@ -104,7 +104,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
         }
     },
 
-    renderViewFile: function() {
+    renderViewFile: function () {
         this.template('_view.html', 'public/modules/' + this.slugifiedModuleName + '/views/' + this.slugifiedName + '.html')
     }
 });

@@ -5,7 +5,7 @@ var util = require('util'),
 
 
 var DirectiveGenerator = yeoman.generators.NamedBase.extend({
-    askForModuleName: function() {
+    askForModuleName: function () {
         var done = this.async();
 
         var prompts = [{
@@ -14,7 +14,7 @@ var DirectiveGenerator = yeoman.generators.NamedBase.extend({
             default: 'core'
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.moduleName = props.moduleName;
             this.slugifiedModuleName = this._.slugify(this.moduleName);
             
@@ -26,7 +26,7 @@ var DirectiveGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    renderDirectiveFile: function() {
+    renderDirectiveFile: function () {
         this.template('_directive.js', 'public/modules/' + this.slugifiedModuleName + '/directives/' + this.slugifiedName + '.js')
     }
 });

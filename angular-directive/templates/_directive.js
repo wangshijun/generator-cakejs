@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('<%= slugifiedModuleName %>').directive('<%= camelizedName %>', [
-    function() {
+    function () {
         return {
             template: '<div></div>',
             restrict: 'E',

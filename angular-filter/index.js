@@ -5,7 +5,7 @@ var util = require('util'),
 
 
 var FilterGenerator = yeoman.generators.NamedBase.extend({
-    askForModuleName: function() {
+    askForModuleName: function () {
         var done = this.async();
 
         var prompts = [{
@@ -14,7 +14,7 @@ var FilterGenerator = yeoman.generators.NamedBase.extend({
             default: 'core'
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.moduleName = props.moduleName;
             this.slugifiedModuleName = this._.slugify(this.moduleName);
             
@@ -26,7 +26,7 @@ var FilterGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    renderFilterFile: function() {
+    renderFilterFile: function () {
         this.template('_filter.js', 'public/modules/' + this.slugifiedModuleName + '/filters/' + this.slugifiedName + '.js')
     }
 });

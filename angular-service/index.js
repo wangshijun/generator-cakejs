@@ -5,7 +5,7 @@ var util = require('util'),
 
 
 var ServiceGenerator = yeoman.generators.NamedBase.extend({
-    askForModuleName: function() {
+    askForModuleName: function () {
         var done = this.async();
 
         var prompts = [{
@@ -14,7 +14,7 @@ var ServiceGenerator = yeoman.generators.NamedBase.extend({
             default: 'core'
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.moduleName = props.moduleName;
             this.slugifiedModuleName = this._.slugify(this._.humanize(this.moduleName));
             
@@ -26,7 +26,7 @@ var ServiceGenerator = yeoman.generators.NamedBase.extend({
         }.bind(this));
     },
 
-    renderServiceFile: function() {
+    renderServiceFile: function () {
         this.template('_service.js', 'public/modules/' + this.slugifiedModuleName + '/services/' + this.slugifiedName + '.js')
     }
 });

@@ -2,7 +2,7 @@
 
 //Setting up route
 angular.module('<%= slugifiedModuleName %>').config(['$stateProvider',
-    function($stateProvider) {
+    function ($stateProvider) {
         // <%= humanizedModuleName %> state routing
         $stateProvider.
         state('<%= slugifiedName %>', {

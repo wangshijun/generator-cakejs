@@ -2,7 +2,7 @@
 
 // <%= humanizedModuleName %> module config
 angular.module('<%= slugifiedModuleName %>').config([
-    function() {
+    function () {
         // Config logic 
         // ...
     }
