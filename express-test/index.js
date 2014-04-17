@@ -7,7 +7,7 @@ var util = require('util'),
 
 
 var TestGenerator = yeoman.generators.NamedBase.extend({
-    renderTestFile: function() {
+    renderTestFile: function () {
         // Set model names
         this.slugifiedModelName = this._.slugify(this._.humanize(this.name));
         this.classifiedModelName = this._.classify(this.slugifiedModelName);

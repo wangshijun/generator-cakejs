@@ -2,18 +2,18 @@
 
 // <%= humanizedPluralName %> controller
 angular.module('<%= slugifiedPluralName %>').controller('<%= classifiedPluralName %>Controller', ['$scope', '$stateParams', '$location', 'Authentication', '<%= classifiedPluralName %>',
-    function($scope, $stateParams, $location, Authentication, <%= classifiedPluralName %>) {
+    function ($scope, $stateParams, $location, Authentication, <%= classifiedPluralName %>) {
         $scope.authentication = Authentication;
 
         // Create new <%= humanizedSingularName %>
-        $scope.create = function() {
+        $scope.create = function () {
             // Create new <%= humanizedSingularName %> object
             var <%= camelizedSingularName %> = new <%= classifiedPluralName %>({
                 name: this.name
             });
 
             // Redirect after save
-            <%= camelizedSingularName %>.$save(function(response) {
+            <%= camelizedSingularName %>.$save(function (response) {
                 $location.path('<%= slugifiedPluralName %>/' + response._id);
             });
 
@@ -22,7 +22,7 @@ angular.module('<%= slugifiedPluralName %>').controller('<%= classifiedPluralNam
         };
 
         // Remove existing <%= humanizedSingularName %>
-        $scope.remove = function(<%= camelizedSingularName %>) {
+        $scope.remove = function (<%= camelizedSingularName %>) {
             if (<%= camelizedSingularName %>) {
                 <%= camelizedSingularName %>.$remove();
 
@@ -32,33 +32,33 @@ angular.module('<%= slugifiedPluralName %>').controller('<%= classifiedPluralNam
                     }
                 }
             } else {
-                $scope.<%= camelizedSingularName %>.$remove(function() {
+                $scope.<%= camelizedSingularName %>.$remove(function () {
                     $location.path('<%= slugifiedPluralName %>');
                 });
             }
         };
 
         // Update existing <%= humanizedSingularName %>
-        $scope.update = function() {
+        $scope.update = function () {
             var <%= camelizedSingularName %> = $scope.<%= camelizedSingularName %>;
 
-            <%= camelizedSingularName %>.$update(function() {
+            <%= camelizedSingularName %>.$update(function () {
                 $location.path('<%= slugifiedPluralName %>/' + <%= camelizedSingularName %>._id);
             });
         };
 
         // Find a list of <%= humanizedPluralName %>
-        $scope.find = function() {
-            <%= classifiedPluralName %>.query(function(<%= camelizedPluralName %>) {
+        $scope.find = function () {
+            <%= classifiedPluralName %>.query(function (<%= camelizedPluralName %>) {
                 $scope.<%= camelizedPluralName %> = <%= camelizedPluralName %>;
             });
         };
 
         // Find existing <%= humanizedSingularName %>
-        $scope.findOne = function() {
+        $scope.findOne = function () {
             <%= classifiedPluralName %>.get({
                 <%= camelizedSingularName %>Id: $stateParams.<%= camelizedSingularName %>Id
-            }, function(<%= camelizedSingularName %>) {
+            }, function (<%= camelizedSingularName %>) {
                 $scope.<%= camelizedSingularName %> = <%= camelizedSingularName %>;
             });
         };

@@ -5,7 +5,7 @@ var util = require('util'),
 
 
 var ControllerGenerator = yeoman.generators.NamedBase.extend({
-    createControllerFile: function() {
+    createControllerFile: function () {
         this.slugifiedName = this._.slugify(this._.humanize(this.name));
 
         this.humanizedName = this._.humanize(this.slugifiedName);

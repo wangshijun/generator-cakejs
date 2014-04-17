@@ -1,8 +1,8 @@
 'use strict';
 
-(function() {
+(function () {
     // <%= humanizedPluralName %> Controller Spec
-    describe('<%= humanizedPluralName %> Controller Tests', function() {
+    describe('<%= humanizedPluralName %> Controller Tests', function () {
         // Initialize global variables
         var <%= classifiedPluralName %>Controller,
             scope,
@@ -15,11 +15,11 @@
         // the responses exactly. To solve the problem, we define a new toEqualData Jasmine matcher.
         // When the toEqualData matcher compares two objects, it takes only object properties into
         // account and ignores methods.
-        beforeEach(function() {
+        beforeEach(function () {
             jasmine.addMatchers({
-                toEqualData: function(util, customEqualityTesters) {
+                toEqualData: function (util, customEqualityTesters) {
                     return {
-                        compare: function(actual, expected) {
+                        compare: function (actual, expected) {
                             return {
                                 pass: angular.equals(actual, expected)
                             };
@@ -35,7 +35,7 @@
         // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
         // This allows us to inject a service but then attach it to a variable
         // with the same name as the service.
-        beforeEach(inject(function($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_) {
+        beforeEach(inject(function ($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_) {
             // Set a new global scope
             scope = $rootScope.$new();
 
@@ -50,7 +50,7 @@
             });
         }));
 
-        it('$scope.find() should create an array with at least one <%= humanizedSingularName %> object fetched from XHR', inject(function(<%= classifiedPluralName %>) {
+        it('$scope.find() should create an array with at least one <%= humanizedSingularName %> object fetched from XHR', inject(function (<%= classifiedPluralName %>) {
             // Create sample <%= humanizedSingularName %> using the <%= humanizedPluralName %> service
             var sample<%= classifiedSingularName %> = new <%= classifiedPluralName %>({
                 name: 'New <%= humanizedSingularName %>'
@@ -70,7 +70,7 @@
             expect(scope.<%= camelizedPluralName %>).toEqualData(sample<%= classifiedPluralName %>);
         }));
 
-        it('$scope.findOne() should create an array with one <%= humanizedSingularName %> object fetched from XHR using a <%= camelizedSingularName %>Id URL parameter', inject(function(<%= classifiedPluralName %>) {
+        it('$scope.findOne() should create an array with one <%= humanizedSingularName %> object fetched from XHR using a <%= camelizedSingularName %>Id URL parameter', inject(function (<%= classifiedPluralName %>) {
             // Define a sample <%= humanizedSingularName %> object
             var sample<%= classifiedSingularName %> = new <%= classifiedPluralName %>({
                 name: 'New <%= humanizedSingularName %>'
@@ -90,7 +90,7 @@
             expect(scope.<%= camelizedSingularName %>).toEqualData(sample<%= classifiedSingularName %>);
         }));
 
-        it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(<%= classifiedPluralName %>) {
+        it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function (<%= classifiedPluralName %>) {
             // Create a sample <%= humanizedSingularName %> object
             var sample<%= classifiedSingularName %>PostData = new <%= classifiedPluralName %>({
                 name: 'New <%= humanizedSingularName %>'
@@ -119,7 +119,7 @@
             expect($location.path()).toBe('/<%= slugifiedPluralName %>/' + sample<%= classifiedSingularName %>Response._id);
         }));
 
-        it('$scope.update() should update a valid <%= humanizedSingularName %>', inject(function(<%= classifiedPluralName %>) {
+        it('$scope.update() should update a valid <%= humanizedSingularName %>', inject(function (<%= classifiedPluralName %>) {
             // Define a sample <%= humanizedSingularName %> put data
             var sample<%= classifiedSingularName %>PutData = new <%= classifiedPluralName %>({
                 _id: '525cf20451979dea2c000001',
@@ -140,7 +140,7 @@
             expect($location.path()).toBe('/<%= slugifiedPluralName %>/' + sample<%= classifiedSingularName %>PutData._id);
         }));
 
-        it('$scope.remove() should send a DELETE request with a valid <%= camelizedSingularName %>Id and remove the <%= humanizedSingularName %> from the scope', inject(function(<%= classifiedPluralName %>) {
+        it('$scope.remove() should send a DELETE request with a valid <%= camelizedSingularName %>Id and remove the <%= humanizedSingularName %> from the scope', inject(function (<%= classifiedPluralName %>) {
             // Create new <%= humanizedSingularName %> object
             var sample<%= classifiedSingularName %> = new <%= classifiedPluralName %>({
                 _id: '525a8422f6d0f87f0e407a33'

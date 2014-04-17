@@ -52,7 +52,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
             this.controllerName = props.controllerName;
 
             this.slugifiedRoutePath = this._.slugify(this.routePath);
-            
+
             this.slugifiedViewName = this._.slugify(this.viewName);
             this.humanizedViewName = this._.humanize(this.viewName);
 

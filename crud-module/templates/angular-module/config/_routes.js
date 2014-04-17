@@ -2,7 +2,7 @@
 
 //Setting up route
 angular.module('<%= slugifiedPluralName %>').config(['$stateProvider',
-    function($stateProvider) {
+    function ($stateProvider) {
         // <%= humanizedPluralName %> state routing
         $stateProvider.
         state('list<%= classifiedPluralName %>', {

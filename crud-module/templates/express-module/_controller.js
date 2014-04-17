@@ -10,11 +10,11 @@ var mongoose = require('mongoose'),
 /**
  * Create a <%= humanizedSingularName %>
  */
-exports.create = function(req, res) {
+exports.create = function (req, res) {
     var <%= camelizedSingularName %> = new <%= classifiedSingularName %>(req.body);
     <%= camelizedSingularName %>.user = req.user;
 
-    <%= camelizedSingularName %>.save(function(err) {
+    <%= camelizedSingularName %>.save(function (err) {
         if (err) {
             return res.send('users/signup', {
                 errors: err.errors,
@@ -29,19 +29,19 @@ exports.create = function(req, res) {
 /**
  * Show the current <%= humanizedSingularName %>
  */
-exports.read = function(req, res) {
+exports.read = function (req, res) {
     res.jsonp(req.<%= camelizedSingularName %>);
 };
 
 /**
  * Update a <%= humanizedSingularName %>
  */
-exports.update = function(req, res) {
+exports.update = function (req, res) {
     var <%= camelizedSingularName %> = req.<%= camelizedSingularName %>;
 
     <%= camelizedSingularName %> = _.extend(<%= camelizedSingularName %>, req.body);
 
-    <%= camelizedSingularName %>.save(function(err) {
+    <%= camelizedSingularName %>.save(function (err) {
         if (err) {
             res.render('error', {
                 status: 500
@@ -55,10 +55,10 @@ exports.update = function(req, res) {
 /**
  * Delete an <%= humanizedSingularName %>
  */
-exports.delete = function(req, res) {
+exports.delete = function (req, res) {
     var <%= camelizedSingularName %> = req.<%= camelizedSingularName %>;
 
-    <%= camelizedSingularName %>.remove(function(err) {
+    <%= camelizedSingularName %>.remove(function (err) {
         if (err) {
             res.render('error', {
                 status: 500
@@ -72,8 +72,8 @@ exports.delete = function(req, res) {
 /**
  * List of <%= humanizedPluralName %>
  */
-exports.list = function(req, res) {
-    <%= classifiedSingularName %>.find().sort('-created').populate('user', 'displayName').exec(function(err, <%= camelizedPluralName %>) {
+exports.list = function (req, res) {
+    <%= classifiedSingularName %>.find().sort('-created').populate('user', 'displayName').exec(function (err, <%= camelizedPluralName %>) {
         if (err) {
             res.render('error', {
                 status: 500
@@ -87,8 +87,8 @@ exports.list = function(req, res) {
 /**
  * <%= humanizedSingularName %> middleware
  */
-exports.<%= camelizedSingularName %>ByID = function(req, res, next, id) {
-    <%= classifiedSingularName %>.findById(id).populate('user', 'displayName').exec(function(err, <%= camelizedSingularName %>) {
+exports.<%= camelizedSingularName %>ByID = function (req, res, next, id) {
+    <%= classifiedSingularName %>.findById(id).populate('user', 'displayName').exec(function (err, <%= camelizedSingularName %>) {
         if (err) return next(err);
         if (!<%= camelizedSingularName %>) return next(new Error('Failed to load <%= humanizedSingularName %> ' + id));
         req.<%= camelizedSingularName %> = <%= camelizedSingularName %>;
@@ -99,7 +99,7 @@ exports.<%= camelizedSingularName %>ByID = function(req, res, next, id) {
 /**
  * <%= humanizedSingularName %> authorization middleware
  */
-exports.hasAuthorization = function(req, res, next) {
+exports.hasAuthorization = function (req, res, next) {
     if (req.<%= camelizedSingularName %>.user.id !== req.user.id) {
         return res.send(403, 'User is not authorized');
     }
