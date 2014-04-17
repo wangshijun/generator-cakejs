@@ -2,7 +2,7 @@
 
 // Authentication service for user variables
 angular.module('users').factory('Authentication', [
-    function() {
+    function () {
         var _this = this;
 
         _this._data = {

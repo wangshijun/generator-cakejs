@@ -6,13 +6,13 @@
 var fs = require('fs');
 
 // Walk function to recursively get files
-var _walk = function(root, includeRegex, excludeRegex, removePath) {
+var _walk = function (root, includeRegex, excludeRegex, removePath) {
     var output = [];
     var directories = [];
     includeRegex = includeRegex || /(.*)\.(js|coffee)$/;
 
-    // First read through files 
-    fs.readdirSync(root).forEach(function(file) {
+    // First read through files
+    fs.readdirSync(root).forEach(function (file) {
         var newPath = root + '/' + file;
         var stat = fs.statSync(newPath);
 
@@ -26,7 +26,7 @@ var _walk = function(root, includeRegex, excludeRegex, removePath) {
     });
 
     // Then recursively add directories
-    directories.forEach(function(directory) {
+    directories.forEach(function (directory) {
         output = output.concat(_walk(directory, includeRegex, excludeRegex, removePath));
     });
 

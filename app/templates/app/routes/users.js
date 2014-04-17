@@ -5,7 +5,7 @@
  */
 var passport = require('passport');
 
-module.exports = function(app) {
+module.exports = function (app) {
     // User Routes
     var users = require('../../app/controllers/users');
     app.get('/users/me', users.me);

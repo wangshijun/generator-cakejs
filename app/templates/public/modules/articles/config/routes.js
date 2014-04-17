@@ -2,7 +2,7 @@
 
 // Setting up route
 angular.module('articles').config(['$stateProvider',
-    function($stateProvider) {
+    function ($stateProvider) {
         // Articles state routing
         $stateProvider.
         state('listArticles', {

@@ -6,12 +6,12 @@ var util = require('util'),
 
 
 var MeanGenerator = yeoman.generators.Base.extend({
-    init: function() {
+    init: function () {
         // read the local package file
         this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
 
         // invoke npm install on finish
-        this.on('end', function() {
+        this.on('end', function () {
             if (!this.options['skip-install']) {
                 this.npmInstall();
             }
@@ -24,7 +24,7 @@ var MeanGenerator = yeoman.generators.Base.extend({
         console.log(chalk.magenta('You\'re using the official MEAN.JS generator.'));
     },
 
-    askForApplicationDetails: function() {
+    askForApplicationDetails: function () {
         var done = this.async();
 
         var prompts = [{
@@ -49,7 +49,7 @@ var MeanGenerator = yeoman.generators.Base.extend({
             default: true
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.appName = props.appName;
             this.appDescription = props.appDescription;
             this.appKeywords = props.appKeywords;
@@ -59,12 +59,12 @@ var MeanGenerator = yeoman.generators.Base.extend({
             this.slugifiedAppName = this._.slugify(this.appName);
             this.humanizedAppName = this._.humanize(this.appName);
             this.capitalizedAppAuthor = this._.capitalize(this.appAuthor);
-            
+
             done();
         }.bind(this));
     },
 
-    askForAngularApplicationModules: function() {
+    askForAngularApplicationModules: function () {
         var done = this.async();
 
         var prompts = [{
@@ -90,7 +90,7 @@ var MeanGenerator = yeoman.generators.Base.extend({
             }]
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
             this.angularCookies = this._.contains(props.modules, 'angularCookies');
             this.angularAnimate = this._.contains(props.modules, 'angularAnimate');
             this.angularTouch = this._.contains(props.modules, 'angularTouch');
@@ -100,7 +100,7 @@ var MeanGenerator = yeoman.generators.Base.extend({
         }.bind(this));
     },
 
-    copyApplicationFolder: function() {
+    copyApplicationFolder: function () {
         // Copy application folder
         this.mkdir('app');
         this.mkdir('app/controllers');
@@ -161,7 +161,7 @@ var MeanGenerator = yeoman.generators.Base.extend({
         this.copy('travis.yml', '.travis.yml');
     },
 
-    renderArticleExample: function() {
+    renderArticleExample: function () {
         // Copy example files if desired
         if (this.addArticleExample) {
             // Copy Express files
@@ -171,11 +171,11 @@ var MeanGenerator = yeoman.generators.Base.extend({
             this.copy('app/tests/articles.js');
 
             // Copy AngularJS files
-            this.directory('public/modules/articles'); 
+            this.directory('public/modules/articles');
         }
     },
 
-    renderApplicationViewsFiles: function() {
+    renderApplicationViewsFiles: function () {
         this.copy('app/views/404.html');
         this.copy('app/views/500.html');
         this.copy('app/views/index.html');
@@ -183,7 +183,7 @@ var MeanGenerator = yeoman.generators.Base.extend({
         this.template('app/views/_layout.html', 'app/views/layout.html');
     },
 
-    renderApplicationEnvironmentConfigFiles: function() {
+    renderApplicationEnvironmentConfigFiles: function () {
         this.template('config/env/_all.js', 'config/env/all.js');
         this.template('config/env/_development.js', 'config/env/development.js');
         this.template('config/env/_production.js', 'config/env/production.js');
@@ -191,21 +191,21 @@ var MeanGenerator = yeoman.generators.Base.extend({
         this.template('config/env/_travis.js', 'config/env/travis.js');
     },
 
-    renderAngularApplicationConfigFile: function() {
+    renderAngularApplicationConfigFile: function () {
         this.template('public/js/_config.js', 'public/js/config.js');
     },
 
-    renderCoreModuleFiles: function() {
+    renderCoreModuleFiles: function () {
         this.template('public/modules/core/views/_header.html', 'public/modules/core/views/header.html');
         this.template('public/modules/core/controllers/_header.js', 'public/modules/core/controllers/header.js');
     },
 
-    renderApplicationDependenciesFiles: function() {
+    renderApplicationDependenciesFiles: function () {
         this.template('_package.json', 'package.json');
         this.template('_bower.json', 'bower.json');
     },
 
-    renderApplicationKarmaFile: function() {
+    renderApplicationKarmaFile: function () {
         this.template('_karma.conf.js', 'karma.conf.js');
     }
 });

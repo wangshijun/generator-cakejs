@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('core').controller('HeaderController', ['$scope', 'Authentication',
-    function($scope, Authentication) {
+    function ($scope, Authentication) {
         $scope.authentication = Authentication;
         $scope.isCollapsed = false;
 
@@ -15,7 +15,7 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
             uiRoute: '/articles/create'
         }<% } %>];
 
-        $scope.toggleCollapsibleMenu = function() {
+        $scope.toggleCollapsibleMenu = function () {
             $scope.isCollapsed = !$scope.isCollapsed;
         };
     }

@@ -9,7 +9,7 @@ var utilities = require('./config/utilities');
 var modulesJSFiles = utilities.walk('./public/modules', /(.*)\.js$/);
 
 // Karma configuration
-module.exports = function(config) {
+module.exports = function (config) {
     config.set({
         // Frameworks to use
         frameworks: ['jasmine'],

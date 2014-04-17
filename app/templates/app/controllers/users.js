@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     _ = require('lodash');
 
-var getErrorMessage = function(err) {
+var getErrorMessage = function (err) {
     var message = '';
 
     if (err.code) {
@@ -32,7 +32,7 @@ var getErrorMessage = function(err) {
 /**
  * Signup
  */
-exports.signup = function(req, res) {
+exports.signup = function (req, res) {
     // Init Variables
     var user = new User(req.body);
     var message = null;
@@ -41,7 +41,7 @@ exports.signup = function(req, res) {
     user.provider = 'local';
     user.displayName = user.firstName + ' ' + user.lastName;
 
-    user.save(function(err) {
+    user.save(function (err) {
         if (err) {
             return res.send(400, {
                 message: getErrorMessage(err)
@@ -51,7 +51,7 @@ exports.signup = function(req, res) {
             user.password = undefined;
             user.salt = undefined;
 
-            req.login(user, function(err) {
+            req.login(user, function (err) {
                 if (err) {
                     res.send(400, err);
                 } else {
@@ -65,8 +65,8 @@ exports.signup = function(req, res) {
 /**
  * Signin after passport authentication
  */
-exports.signin = function(req, res, next) {
-    passport.authenticate('local', function(err, user, info) {
+exports.signin = function (req, res, next) {
+    passport.authenticate('local', function (err, user, info) {
         if (err || !user) {
             res.send(400, info);
         } else {
@@ -74,7 +74,7 @@ exports.signin = function(req, res, next) {
             user.password = undefined;
             user.salt = undefined;
 
-            req.login(user, function(err) {
+            req.login(user, function (err) {
                 if (err) {
                     res.send(400, err);
                 } else {
@@ -88,7 +88,7 @@ exports.signin = function(req, res, next) {
 /**
  * Update user details
  */
-exports.update = function(req, res) {
+exports.update = function (req, res) {
     // Init Variables
     var user = req.user;
     var message = null;
@@ -99,13 +99,13 @@ exports.update = function(req, res) {
         user.updated = Date.now();
         user.displayName = user.firstName + ' ' + user.lastName;
 
-        user.save(function(err) {
+        user.save(function (err) {
             if (err) {
                 return res.send(400, {
                     message: getErrorMessage(err)
                 });
             } else {
-                req.login(user, function(err) {
+                req.login(user, function (err) {
                     if (err) {
                         res.send(400, err);
                     } else {
@@ -124,25 +124,25 @@ exports.update = function(req, res) {
 /**
  * Change Password
  */
-exports.changePassword = function(req, res, next) {
+exports.changePassword = function (req, res, next) {
     // Init Variables
     var passwordDetails = req.body;
     var message = null;
 
     if (req.user) {
-        User.findById(req.user.id, function(err, user) {
+        User.findById(req.user.id, function (err, user) {
             if (!err && user) {
                 if (user.authenticate(passwordDetails.currentPassword)) {
                     if (passwordDetails.newPassword === passwordDetails.verifyPassword) {
                         user.password = passwordDetails.newPassword;
 
-                        user.save(function(err) {
+                        user.save(function (err) {
                             if (err) {
                                 return res.send(400, {
                                     message: getErrorMessage(err)
                                 });
                             } else {
-                                req.login(user, function(err) {
+                                req.login(user, function (err) {
                                     if (err) {
                                         res.send(400, err);
                                     } else {
@@ -180,7 +180,7 @@ exports.changePassword = function(req, res, next) {
 /**
  * Signout
  */
-exports.signout = function(req, res) {
+exports.signout = function (req, res) {
     req.logout();
     res.redirect('/');
 };
@@ -188,21 +188,21 @@ exports.signout = function(req, res) {
 /**
  * Send User
  */
-exports.me = function(req, res) {
+exports.me = function (req, res) {
     res.jsonp(req.user || null);
 };
 
 /**
  * OAuth callback
  */
-exports.oauthCallback = function(strategy) {
-    return function(req, res, next) {
-        passport.authenticate(strategy, function(err, user, email) {
+exports.oauthCallback = function (strategy) {
+    return function (req, res, next) {
+        passport.authenticate(strategy, function (err, user, email) {
             if (err || !user) {
                 console.log(err);
                 return res.redirect('/#!/signin');
             }
-            req.login(user, function(err) {
+            req.login(user, function (err) {
                 if (err) {
                     return res.redirect('/#!/signin');
                 }
@@ -216,10 +216,10 @@ exports.oauthCallback = function(strategy) {
 /**
  * User middleware
  */
-exports.userByID = function(req, res, next, id) {
+exports.userByID = function (req, res, next, id) {
     User.findOne({
         _id: id
-    }).exec(function(err, user) {
+    }).exec(function (err, user) {
         if (err) return next(err);
         if (!user) return next(new Error('Failed to load User ' + id));
         req.profile = user;
@@ -230,7 +230,7 @@ exports.userByID = function(req, res, next, id) {
 /**
  * Require login routing middleware
  */
-exports.requiresLogin = function(req, res, next) {
+exports.requiresLogin = function (req, res, next) {
     if (!req.isAuthenticated()) {
         return res.send(401, 'User is not logged in');
     }
@@ -241,7 +241,7 @@ exports.requiresLogin = function(req, res, next) {
 /**
  * User authorizations routing middleware
  */
-exports.hasAuthorization = function(req, res, next) {
+exports.hasAuthorization = function (req, res, next) {
     if (req.profile.id !== req.user.id) {
         return res.send(403, 'User is not authorized');
     }

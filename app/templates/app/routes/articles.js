@@ -6,7 +6,7 @@
 var users = require('../../app/controllers/users'),
     articles = require('../../app/controllers/articles');
 
-module.exports = function(app) {
+module.exports = function (app) {
     // Article Routes
     app.get('/articles', articles.list);
     app.post('/articles', users.requiresLogin, articles.create);
