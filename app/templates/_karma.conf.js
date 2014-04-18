@@ -9,23 +9,22 @@ var utilities = require('./config/utilities');
 var modulesJSFiles = utilities.walk('./public/modules', /(.*)\.js$/);
 
 // Karma configuration
-module.exports = function (config) {
+module.exports = function(config) {
     config.set({
         // Frameworks to use
         frameworks: ['jasmine'],
 
         // List of files / patterns to load in the browser
         files: [
-            'public/lib/angular/angular.js',
-            'public/lib/angular-resource/angular-resource.js',
-            'public/lib/angular-mocks/angular-mocks.js', <% if (angularCookies) { %>
-            'public/lib/angular-cookies/angular-cookies.js', <% } if (angularAnimate) { %>
-            'public/lib/angular-animate/angular-animate.js', <% } if (angularTouch) { %>
-            'public/lib/angular-touch/angular-touch.js', <% } if (angularSanitize) { %>
-            'public/lib/angular-sanitize/angular-sanitize.js', <% } %>
-            'public/lib/angular-bootstrap/ui-bootstrap.js',
-            'public/lib/angular-ui-utils/ui-utils.js',
-            'public/lib/angular-ui-router/release/angular-ui-router.js',
+            'public/vendor/angular/angular.js',
+            'public/vendor/angular-resource/angular-resource.js',
+            'public/vendor/angular-mocks/angular-mocks.js', <% if (angularCookies) { %>
+            'public/vendor/angular-cookies/angular-cookies.js', <% } if (angularAnimate) { %>
+            'public/vendor/angular-animate/angular-animate.js', <% } if (angularTouch) { %>
+            'public/vendor/angular-touch/angular-touch.js', <% } if (angularSanitize) { %>
+            'public/vendor/angular-sanitize/angular-sanitize.js', <% } %>
+            'public/vendor/angular-ui-utils/ui-utils.js',
+            'public/vendor/angular-ui-router/release/angular-ui-router.js',
             'public/js/config.js',
             'public/js/application.js',
         ].concat(modulesJSFiles),

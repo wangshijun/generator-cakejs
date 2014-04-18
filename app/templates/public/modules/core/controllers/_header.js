@@ -5,15 +5,15 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
         $scope.authentication = Authentication;
         $scope.isCollapsed = false;
 
-        $scope.menu = [<% if(addArticleExample) { %>{
+        $scope.menu = [{
             title: 'Articles',
             link: 'articles',
-            uiRoute: '/articles'
+            route: '/articles'
         }, {
             title: 'New Article',
             link: 'articles/create',
-            uiRoute: '/articles/create'
-        }<% } %>];
+            route: '/articles/create'
+        }];
 
         $scope.toggleCollapsibleMenu = function () {
             $scope.isCollapsed = !$scope.isCollapsed;
