@@ -1,6 +1,6 @@
 <section ng-controller="<%= classifiedPluralName %>Controller" ng-init="find()">
     <div class="page-header">
-        <h2><%= humanizedPluralName %><a ng-href="#!/<%= slugifiedPluralName %>/create" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add</a></h2>
+        <h2><%= humanizedPluralName %><a ng-href="#!/<%= slugifiedPluralName %>/create" class="btn btn-sm btn-success pull-right"><i class="fa fa-plus"></i> Add</a></h2>
     </div>
     <div class="list-group">
         <a ng-repeat="<%= camelizedSingularName %> in <%= camelizedPluralName %>" ng-href="#!/<%= slugifiedPluralName %>/{{<%= camelizedSingularName %>._id}}" class="list-group-item">
