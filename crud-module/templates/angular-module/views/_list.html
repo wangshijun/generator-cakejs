@@ -1,6 +1,6 @@
 <section data-ng-controller="<%= classifiedPluralName %>Controller" data-ng-init="find()">
     <div class="page-header">
-        <h1><%= humanizedPluralName %></h1>
+        <h2><%= humanizedPluralName %></h2>
     </div>
     <div class="list-group">
         <a data-ng-repeat="<%= camelizedSingularName %> in <%= camelizedPluralName %>" data-ng-href="#!/<%= slugifiedPluralName %>/{{<%= camelizedSingularName %>._id}}" class="list-group-item">
@@ -9,6 +9,6 @@
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!<%= camelizedPluralName %> || <%= camelizedPluralName %>.length">
-    	No <%= humanizedPluralName %> yet, why don't you <a href="/#!/<%= slugifiedPluralName %>/create">create one</a>?
+        No <%= humanizedPluralName %> yet, why don't you <a href="/#!/<%= slugifiedPluralName %>/create">create one</a>?
     </div>
 </section>
