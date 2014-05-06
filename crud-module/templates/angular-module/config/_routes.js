@@ -5,19 +5,19 @@ angular.module('<%= slugifiedPluralName %>').config(['$stateProvider',
     function ($stateProvider) {
         // <%= humanizedPluralName %> state routing
         $stateProvider.
-        state('list<%= classifiedPluralName %>', {
+        state('<%= slugifiedPluralName %>/list', {
             url: '/<%= slugifiedPluralName %>',
             templateUrl: 'modules/<%= slugifiedPluralName %>/views/list.html'
         }).
-        state('create<%= classifiedSingularName %>', {
+        state('<%= slugifiedPluralName %>/create', {
             url: '/<%= slugifiedPluralName %>/create',
             templateUrl: 'modules/<%= slugifiedPluralName %>/views/create.html'
         }).
-        state('view<%= classifiedSingularName %>', {
+        state('<%= slugifiedPluralName %>/view', {
             url: '/<%= slugifiedPluralName %>/:<%= camelizedSingularName %>Id',
             templateUrl: 'modules/<%= slugifiedPluralName %>/views/view.html'
         }).
-        state('edit<%= classifiedSingularName %>', {
+        state('<%= slugifiedPluralName %>/edit', {
             url: '/<%= slugifiedPluralName %>/:<%= camelizedSingularName %>Id/edit',
             templateUrl: 'modules/<%= slugifiedPluralName %>/views/edit.html'
         });
