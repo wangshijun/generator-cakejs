@@ -1,13 +1,13 @@
 <section ng-controller="<%= classifiedPluralName %>Controller" ng-init="findOne()">
     <div class="page-header">
-        <h2>{{<%= camelizedSingularName %>.name}}</h2>
+        <h2>{{<%= camelizedSingularName %>.name}}<a ng-href="#!/<%= slugifiedPluralName %>" class="btn btn-info pull-right"><i class="fa fa-plus"></i> List</a></h2>
     </div>
     <div class="pull-right" ng-show="authentication.user._id == <%= camelizedSingularName %>.user._id">
         <a class="btn btn-primary" href="/#!/<%= slugifiedPluralName %>/{{<%= camelizedSingularName %>._id}}/edit">
-            <i class="glyphicon glyphicon-edit"></i>
+            <i class="fa fa-edit"></i>
         </a>
         <a class="btn btn-primary" ng-click="remove();">
-            <i class="glyphicon glyphicon-trash"></i>
+            <i class="fa fa-trash-o"></i>
         </a>
     </div>
     <small>

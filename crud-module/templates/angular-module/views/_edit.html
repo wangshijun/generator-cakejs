@@ -1,6 +1,6 @@
 <section ng-controller="<%= classifiedPluralName %>Controller" ng-init="findOne()">
     <div class="page-header">
-        <h2>Edit <%= humanizedSingularName %></h2>
+        <h2>Edit <%= humanizedSingularName %><a ng-href="#!/<%= slugifiedPluralName %>" class="btn btn-info pull-right"><i class="fa fa-plus"></i> List</a></h2>
     </div>
     <form class="form-vertical" ng-submit="update()">
         <fieldset>
@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-default">
+                <input type="submit" value="Update" class="btn btn-success">
             </div>
         </fieldset>
     </form>
