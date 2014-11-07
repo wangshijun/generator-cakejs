@@ -1,45 +1,44 @@
 {
-	"name": "generator-meanjs",
-	"version": "0.0.5",
-	"description": "MEAN.JS Official Yeoman Generator",
-	"main": "app/index.js",
-	"repository": "meanjs/generator-meanjs",
-	"author": {
-		"name": "MEAN.JS Team",
-		"email": "support@meanjs.org",
-		"url": "https://github.com/meanjs"
-	},
-	"engines": {
-		"node": ">=0.10.0"
-	},
-	"scripts": {
-		"test": "mocha"
-	},
-	"keywords": [
-		"yeoman-generator",
-		"scaffold",
-		"framework",
-		"component",
-		"front-end",
-		"app",
-		"mean",
-		"meanjs",
-		"node",
-		"express",
-		"angular"
-	],
-	"dependencies": {
-		"yeoman-generator": "~0.16.0",
-		"chalk": "~0.4.0",
-		"underscore.inflections": "~0.2.1"
-	},
-	"devDependencies": {
-		"mocha": "*"
-	},
-	"peerDependencies": {
-		"yo": ">=1.0.0"
-	},
-	"licenses": [{
-		"type": "BSD"
-	}]
+    "name": "generator-cakejs",
+    "version": "0.0.1",
+    "description": "cake.js yeoman generator",
+    "main": "app/index.js",
+    "repository": "wangshijun/generator-cakejs",
+    "author": {
+        "name": "wangshijun2010@gmail.com",
+        "url": "https://github.com/wangshijun/cakejs"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "keywords": [
+        "yeoman-generator",
+        "scaffold",
+        "framework",
+        "component",
+        "front-end",
+        "app",
+        "mean",
+        "cakejs",
+        "node",
+        "express",
+        "angular"
+    ],
+    "dependencies": {
+        "yeoman-generator": "~0.16.0",
+        "chalk": "~0.4.0",
+        "underscore.inflections": "~0.2.1"
+    },
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "peerDependencies": {
+        "yo": ">=1.0.0"
+    },
+    "licenses": [{
+        "type": "BSD"
+    }]
 }
