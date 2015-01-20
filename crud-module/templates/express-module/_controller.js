@@ -10,19 +10,13 @@ var mongoose = require('mongoose'),
 /**
  * Create a <%= humanizedSingularName %>
  */
-exports.create = function (req, res) {
+exports.create = function (req, res, next) {
     var <%= camelizedSingularName %> = new <%= classifiedSingularName %>(req.body);
     <%= camelizedSingularName %>.user = req.user;
 
     <%= camelizedSingularName %>.save(function (err) {
-        if (err) {
-            return res.send('users/signup', {
-                errors: err.errors,
-                <%= camelizedSingularName %>: <%= camelizedSingularName %>
-            });
-        } else {
-            res.jsonp(<%= camelizedSingularName %>);
-        }
+        if (err) { return next(err); }
+        res.jsonp(<%= camelizedSingularName %>);
     });
 };
 
@@ -36,51 +30,36 @@ exports.read = function (req, res) {
 /**
  * Update a <%= humanizedSingularName %>
  */
-exports.update = function (req, res) {
+exports.update = function (req, res, next) {
     var <%= camelizedSingularName %> = req.<%= camelizedSingularName %>;
 
     <%= camelizedSingularName %> = _.extend(<%= camelizedSingularName %>, req.body);
 
     <%= camelizedSingularName %>.save(function (err) {
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.jsonp(<%= camelizedSingularName %>);
-        }
+        if (err) { return next(err); }
+        res.jsonp(<%= camelizedSingularName %>);
     });
 };
 
 /**
  * Delete an <%= humanizedSingularName %>
  */
-exports.delete = function (req, res) {
+exports.delete = function (req, res, next) {
     var <%= camelizedSingularName %> = req.<%= camelizedSingularName %>;
 
     <%= camelizedSingularName %>.remove(function (err) {
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.jsonp(<%= camelizedSingularName %>);
-        }
+        if (err) { return next(err); }
+        res.jsonp(<%= camelizedSingularName %>);
     });
 };
 
 /**
  * List of <%= humanizedPluralName %>
  */
-exports.list = function (req, res) {
+exports.list = function (req, res, next) {
     <%= classifiedSingularName %>.find().sort('-created').populate('user', 'displayName').exec(function (err, <%= camelizedPluralName %>) {
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.jsonp(<%= camelizedPluralName %>);
-        }
+        if (err) { return next(err); }
+        res.jsonp(<%= camelizedPluralName %>);
     });
 };
 
