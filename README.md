@@ -1,13 +1,13 @@
-[![MEAN.JS Logo](http://cakejs.org/img/logo-small.png)](http://cakejs.org/)
+[![CAKE.JS Logo](http://cakejs.org/img/logo-small.png)](http://cakejs.org/)
 
-MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components. 
+CAKE.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components. 
 ## Overview		
 
-One of the most frequently asked features from MEAN users is a way to scaffold their applications. As we looked for a way to help the community build and deploy production level MEAN applications, we decided to go with a [Yeoman](http://yeoman.io/index.html) generator. Yeoman generators provides a powerful, easy to maintain, and open solution for scaffolding applications.
+One of the most frequently asked features from CAKE users is a way to scaffold their applications. As we looked for a way to help the community build and deploy production level CAKE applications, we decided to go with a [Yeoman](http://yeoman.io/index.html) generator. Yeoman generators provides a powerful, easy to maintain, and open solution for scaffolding applications.
 
 
 
-So, we set out to work on the features we thought every developer needs, and we are proud to present the official MEAN.JS Yeoman generator. It includes a set of simple tools you can use to make your MEAN application development easier and way more fun.
+So, we set out to work on the features we thought every developer needs, and we are proud to present the official CAKE.JS Yeoman generator. It includes a set of simple tools you can use to make your CAKE application development easier and way more fun.
 
 
 
@@ -25,14 +25,14 @@ $ npm install -g yo
 
 
 
-Once you have *yo* installed, you will need to install the MEAN.JS generator as well:
+Once you have *yo* installed, you will need to install the CAKE.JS generator as well:
 
 
 ```
 $ npm install -g generator-cakejs
 ```
 
-You are now ready to get started with the MEAN.JS generator. The generator will help you create a MEAN.JS application, a CRUD module, Angular Module, and other AngularJS/Express entities.
+You are now ready to get started with the CAKE.JS generator. The generator will help you create a CAKE.JS application, a CRUD module, Angular Module, and other AngularJS/Express entities.
 
 ## Generators
 
@@ -59,14 +59,14 @@ Available generators:
 
 ## Application Generator
 
-The application generator will help you create a fresh copy of a MEAN.JS application in your working folder. To create your MEAN application, navigate to a new project folder, and then use *yo* to generate your application:
+The application generator will help you create a fresh copy of a CAKE.JS application in your working folder. To create your CAKE application, navigate to a new project folder, and then use *yo* to generate your application:
 
 
 ```
 $ yo cakejs
 ```
 
-The generator will ask you a few questions about your new application and will generate it for you. When the installation process is over, you will be able to use grunt to run your new MEAN application:
+The generator will ask you a few questions about your new application and will generate it for you. When the installation process is over, you will be able to use grunt to run your new CAKE application:
 
 
 ```
@@ -203,7 +203,7 @@ The sub-generator will ask you for the module name under which you would like to
 
 ## AngularJS Test Sub-Generator
 
-Your MEAN application comes pre-bundled with the Karma test runner and Jasmine testing framework. To test your AngularJS controllers you’ll need to create a test file, which Karma will later use to run the tests. For this purpose we provided you with the AngularJS test sub-generator. Creating a new AngularJS test is effortless, just execute this command:
+Your CAKE application comes pre-bundled with the Karma test runner and Jasmine testing framework. To test your AngularJS controllers you’ll need to create a test file, which Karma will later use to run the tests. For this purpose we provided you with the AngularJS test sub-generator. Creating a new AngularJS test is effortless, just execute this command:
 
 
 ```
@@ -260,7 +260,7 @@ This will create a new empty route file in the **app/routes** folder.
 
 ## Express Test Sub-Generator
 
-Your MEAN application comes pre-bundled with the Mocha testing framework. To test your Express models you’ll need to create a new test file, which Mocha will use while running tests. For this purpose we provided you with the Express test sub-generator. Creating a new Express test is easy, just execute this command:
+Your CAKE application comes pre-bundled with the Mocha testing framework. To test your Express models you’ll need to create a new test file, which Mocha will use while running tests. For this purpose we provided you with the Express test sub-generator. Creating a new Express test is easy, just execute this command:
 
 
 ```
