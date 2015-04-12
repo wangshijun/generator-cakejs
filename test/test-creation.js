@@ -3,14 +3,14 @@
 var path = require('path');
 var helpers = require('yeoman-generator').test;
 
-describe('meanjs generator', function () {
+describe('cakejs generator', function () {
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
       if (err) {
         return done(err);
       }
 
-      this.app = helpers.createGenerator('meanjs:app', [
+      this.app = helpers.createGenerator('cakejs:app', [
         '../../app'
       ]);
       done();
